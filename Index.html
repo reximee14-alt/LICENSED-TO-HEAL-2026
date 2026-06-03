@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>October 3, 2026 Countdown</title>
+
+<style>
+    body {
+        margin: 0;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: #111;
+        color: white;
+        font-family: Arial, sans-serif;
+        text-align: center;
+    }
+
+    .container {
+        padding: 20px;
+    }
+
+    .days {
+        font-size: 8rem;
+        font-weight: bold;
+    }
+
+    .label {
+        font-size: 2rem;
+        opacity: 0.8;
+    }
+
+    .date {
+        margin-top: 20px;
+        font-size: 1.2rem;
+        opacity: 0.7;
+    }
+</style>
+</head>
+<body>
+
+<div class="container">
+    <div class="days" id="days">0</div>
+    <div class="label">DAYS TO GO</div>
+    <div class="date">October 3, 2026</div>
+</div>
+
+<script>
+    const targetDate = new Date("2026-10-03T00:00:00");
+
+    function updateCountdown() {
+        const now = new Date();
+        const diff = targetDate - now;
+
+        const days = Math.ceil(diff / (1000 * 60 * 60 * 24));
+
+        document.getElementById("days").textContent =
+            Math.max(days, 0);
+    }
+
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+</script>
+
+</body>
+</html>
